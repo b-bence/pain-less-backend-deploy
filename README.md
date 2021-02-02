@@ -16,6 +16,6 @@ The backend part of the project uses:
 
 ## Installation and Setup Instructions
 
-1. Clone this repository: git clone https://github.com/b-bence/fitness-app-backend
+1. Clone this repository: git clone https://github.com/b-bence/pain-less-backend
 2. You will also need to download the frontend repository (https://github.com/veronka21/pain-less-frontend) and follow the instructions there.
 
