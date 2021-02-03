@@ -35,7 +35,7 @@ public class ExerciseApiServiceApplication {
             Exercise first = Exercise.builder()
                     .description("plank")
                     .lengthInSeconds(100)
-                    .gifUrl("https://media1.giphy.com/media/2UqZvQq4p9DjTBDVRc/giphy.gif")
+                    .gifUrl("exercise-api-service/src/main/resources/static/plank.gif")
                     .build();
 
             Exercise second = Exercise.builder()
