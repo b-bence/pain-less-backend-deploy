@@ -1,7 +1,7 @@
-package com.fitness.testapiservice;
+package com.fitness.exerciseapiservice;
 
-import com.fitness.testapiservice.model.Exercise;
-import com.fitness.testapiservice.repository.ExerciseRepository;
+import com.fitness.exerciseapiservice.model.Exercise;
+import com.fitness.exerciseapiservice.repository.ExerciseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,10 +18,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableSwagger2
 @EnableEurekaClient
-public class TestApiServiceApplication {
+public class ExerciseApiServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TestApiServiceApplication.class, args);
+        SpringApplication.run(ExerciseApiServiceApplication.class, args);
     }
 
     @Autowired
@@ -38,7 +38,15 @@ public class TestApiServiceApplication {
                     .gifUrl("https://media1.giphy.com/media/2UqZvQq4p9DjTBDVRc/giphy.gif")
                     .build();
 
+            Exercise second = Exercise.builder()
+                    .description("asd")
+                    .name("not ads")
+                    .lengthInSeconds(50)
+                    .gifUrl("https://media1.giphy.com/media/2UqZvQq4p9DjTBDVRc/giphy.gif")
+                    .build();
+
             exerciseRepository.save(first);
+            exerciseRepository.save(second);
 
         };
     }

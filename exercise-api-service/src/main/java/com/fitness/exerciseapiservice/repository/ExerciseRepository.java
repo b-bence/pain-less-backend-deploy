@@ -1,6 +1,6 @@
-package com.fitness.testapiservice.repository;
+package com.fitness.exerciseapiservice.repository;
 
-import com.fitness.testapiservice.model.Exercise;
+import com.fitness.exerciseapiservice.model.Exercise;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

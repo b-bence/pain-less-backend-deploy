@@ -1,4 +1,4 @@
-package com.fitness.testapiservice.model;
+package com.fitness.exerciseapiservice.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
