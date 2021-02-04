@@ -1,7 +1,7 @@
 package com.fitness.exerciseapiservice.controller;
 
-import com.fitness.exerciseapiservice.model.Exercise;
 import com.fitness.exerciseapiservice.repository.ExerciseRepository;
+import com.fitness.exerciseapiservice.service.ExerciseList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -28,29 +28,18 @@ public class ExerciseApiController {
     @Autowired
     private ExerciseRepository exerciseRepository;
 
+    @Autowired
+    private ExerciseList exerciseList;
+
     @CrossOrigin(origins = ORIGIN)
     @GetMapping("/all")
-    public List<Exercise> getAllExercises(){
-        return exerciseRepository.findAll();
-    }
-
-    @CrossOrigin(origins = ORIGIN)
-    @GetMapping(value = "/image", produces = MediaType.IMAGE_JPEG_VALUE)
-    public ResponseEntity<Resource> image() throws IOException {
-        final ByteArrayResource inputStream = new ByteArrayResource(Files.readAllBytes(Paths.get(
-                "exercise-api-service/src/main/resources/static/plank.gif"
-        )));
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .contentLength(inputStream.contentLength())
-                .body(inputStream);
-
+    public List<Object> getAllExercises(){
+        return exerciseList.exercisesWithoutLocation();
     }
 
     @CrossOrigin(origins = ORIGIN)
     @GetMapping(value = "/image/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
     public ResponseEntity<Resource> returnImage(@PathVariable UUID id, HttpServletResponse response) throws IOException {
-        System.out.println(id);
         final ByteArrayResource inputStream = new ByteArrayResource(Files.readAllBytes(Paths.get(
                 exerciseRepository.getExerciseById(id).getGifLocation()
         )));
