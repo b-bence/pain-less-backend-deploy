@@ -5,9 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -17,14 +18,14 @@ import javax.persistence.Id;
 public class Exercise {
 
     @Id
-    @GeneratedValue
-    private Long id;
+    private UUID id;
 
     private String name;
 
     private String gifUrl;
 
+    @Column(length = 2048)
     private String description;
 
-    private int lengthInSeconds;
+    private String gifLocation;
 }
