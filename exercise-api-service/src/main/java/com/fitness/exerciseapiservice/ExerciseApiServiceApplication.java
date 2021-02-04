@@ -42,7 +42,7 @@ public class ExerciseApiServiceApplication {
                     .description("asd")
                     .name("not ads")
                     .lengthInSeconds(50)
-                    .gifUrl("https://media1.giphy.com/media/2UqZvQq4p9DjTBDVRc/giphy.gif")
+                    .gifUrl("exercise-api-service/src/main/resources/static/plank.gif")
                     .build();
 
             exerciseRepository.save(first);

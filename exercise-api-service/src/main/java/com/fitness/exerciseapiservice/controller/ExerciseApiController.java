@@ -2,6 +2,7 @@ package com.fitness.exerciseapiservice.controller;
 
 import com.fitness.exerciseapiservice.model.Exercise;
 import com.fitness.exerciseapiservice.repository.ExerciseRepository;
+import com.fitness.exerciseapiservice.service.ExerciseList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -21,6 +22,9 @@ public class ExerciseApiController {
 
     @Autowired
     private ExerciseRepository exerciseRepository;
+
+    @Autowired
+    private ExerciseList exerciseList;
 
     @GetMapping("/hello")
     public String testResult(){
@@ -42,5 +46,16 @@ public class ExerciseApiController {
                 .contentLength(inputStream.contentLength())
                 .body(inputStream);
 
+    }
+
+    @GetMapping("/test")
+    public List<Exercise> returnDatUri() {
+        List<Exercise> exercises = null;
+        try {
+            exercises = exerciseList.setDataUri(exerciseRepository.findAll());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return exercises;
     }
 }
