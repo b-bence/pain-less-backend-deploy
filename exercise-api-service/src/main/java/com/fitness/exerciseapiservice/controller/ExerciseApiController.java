@@ -8,6 +8,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,19 +23,18 @@ import java.util.UUID;
 @RestController
 public class ExerciseApiController {
 
+    private static final String ORIGIN = "*";
+
     @Autowired
     private ExerciseRepository exerciseRepository;
 
-    @GetMapping("/hello")
-    public String testResult(){
-        return "Hello";
-    }
-
+    @CrossOrigin(origins = ORIGIN)
     @GetMapping("/all")
     public List<Exercise> getAllExercises(){
         return exerciseRepository.findAll();
     }
 
+    @CrossOrigin(origins = ORIGIN)
     @GetMapping(value = "/image", produces = MediaType.IMAGE_JPEG_VALUE)
     public ResponseEntity<Resource> image() throws IOException {
         final ByteArrayResource inputStream = new ByteArrayResource(Files.readAllBytes(Paths.get(
@@ -47,6 +47,7 @@ public class ExerciseApiController {
 
     }
 
+    @CrossOrigin(origins = ORIGIN)
     @GetMapping(value = "/image/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
     public ResponseEntity<Resource> returnImage(@PathVariable UUID id, HttpServletResponse response) throws IOException {
         System.out.println(id);
