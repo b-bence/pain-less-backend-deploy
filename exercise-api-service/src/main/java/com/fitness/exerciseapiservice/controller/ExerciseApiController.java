@@ -2,6 +2,7 @@ package com.fitness.exerciseapiservice.controller;
 
 import com.fitness.exerciseapiservice.repository.ExerciseRepository;
 import com.fitness.exerciseapiservice.service.ExerciseList;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -34,7 +35,7 @@ public class ExerciseApiController {
     @CrossOrigin(origins = ORIGIN)
     @GetMapping("/all")
     public List<Object> getAllExercises(){
-        return exerciseList.exercisesWithoutLocation();
+        return exerciseList.getFilteredExerciseList();
     }
 
     @CrossOrigin(origins = ORIGIN)
@@ -48,4 +49,13 @@ public class ExerciseApiController {
                 .contentLength(inputStream.contentLength())
                 .body(inputStream);
     }
+
+    @CrossOrigin(origins = ORIGIN)
+    @GetMapping("/exercise/{id}")
+    public JSONObject getExerciseById(@PathVariable UUID id){
+        return exerciseList.getFilteredExercise(id);
+    }
+
+
+
 }
