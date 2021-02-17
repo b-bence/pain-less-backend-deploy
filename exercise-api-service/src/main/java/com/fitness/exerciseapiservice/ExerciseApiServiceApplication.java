@@ -1,7 +1,9 @@
 package com.fitness.exerciseapiservice;
 
 import com.fitness.exerciseapiservice.model.Exercise;
+import com.fitness.exerciseapiservice.model.Workout;
 import com.fitness.exerciseapiservice.repository.ExerciseRepository;
+import com.fitness.exerciseapiservice.repository.WorkoutRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,6 +17,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.util.Arrays;
 import java.util.UUID;
 
 @SpringBootApplication
@@ -28,6 +31,9 @@ public class ExerciseApiServiceApplication {
 
     @Autowired
     private ExerciseRepository exerciseRepository;
+
+    @Autowired
+    private WorkoutRepository workoutRepository;
 
     @Bean
     @Profile("production")
@@ -114,6 +120,13 @@ public class ExerciseApiServiceApplication {
             exerciseRepository.save(exercise_6);
             exerciseRepository.save(exercise_7);
             exerciseRepository.save(exercise_8);
+
+            Workout workout = Workout.builder()
+                    .name("first")
+                    .exercises(Arrays.asList(exercise_1, exercise_2))
+                    .build();
+
+            workoutRepository.save(workout);
 
         };
     }
