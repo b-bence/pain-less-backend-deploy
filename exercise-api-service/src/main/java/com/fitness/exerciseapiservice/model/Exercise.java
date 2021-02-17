@@ -28,4 +28,6 @@ public class Exercise {
     private String description;
 
     private String gifLocation;
+
+    private Integer lengthInSeconds;
 }
