@@ -1,6 +1,10 @@
 package com.fitness.exerciseapiservice.controller;
 
+import com.fitness.exerciseapiservice.model.Exercise;
+import com.fitness.exerciseapiservice.model.Workout;
 import com.fitness.exerciseapiservice.repository.ExerciseRepository;
+import com.fitness.exerciseapiservice.repository.GifLocationRepository;
+import com.fitness.exerciseapiservice.repository.WorkoutRepository;
 import com.fitness.exerciseapiservice.service.ExerciseList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
@@ -31,21 +35,40 @@ public class ExerciseApiController {
     @Autowired
     private ExerciseList exerciseList;
 
+    @Autowired
+    private GifLocationRepository gifLocationRepository;
+
+    @Autowired
+    private WorkoutRepository workoutRepository;
+
     @CrossOrigin(origins = ORIGIN)
     @GetMapping("/all")
-    public List<Object> getAllExercises(){
-        return exerciseList.exercisesWithoutLocation();
+    public List<Exercise> getAllExercises(){
+        return exerciseRepository.findAll();
     }
 
     @CrossOrigin(origins = ORIGIN)
     @GetMapping(value = "/image/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
     public ResponseEntity<Resource> returnImage(@PathVariable UUID id, HttpServletResponse response) throws IOException {
         final ByteArrayResource inputStream = new ByteArrayResource(Files.readAllBytes(Paths.get(
-                exerciseRepository.getExerciseById(id).getGifLocation()
+                gifLocationRepository.getGifLocationByExerciseId(id).getLocation()
         )));
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .contentLength(inputStream.contentLength())
                 .body(inputStream);
     }
+
+    @CrossOrigin(origins = ORIGIN)
+    @GetMapping("/exercise/{id}")
+    public Exercise getExerciseById(@PathVariable UUID id){
+        return exerciseRepository.getExerciseById(id);
+    }
+    @CrossOrigin(origins = ORIGIN)
+    @GetMapping("/workout/all")
+    public List<Workout> getAllWorkouts(){
+        return workoutRepository.findAll();
+    }
+
+
 }
