@@ -27,7 +27,5 @@ public class Exercise {
     @Column(length = 2048)
     private String description;
 
-    private String gifLocation;
-
     private Integer lengthInSeconds;
 }
