@@ -55,7 +55,7 @@ public class ExerciseApiServiceApplication {
                     .build();
 
             GifLocation location_1 = GifLocation.builder()
-                    .location("exercise-api-service/src/main/resources/static/elbow-to-knee.gif")
+                    .location("src/main/resources/static/elbow-to-knee.gif")
                     .exerciseId(uuid)
                     .build();
 
@@ -69,7 +69,7 @@ public class ExerciseApiServiceApplication {
                     .build();
 
             GifLocation location_2 = GifLocation.builder()
-                    .location("exercise-api-service/src/main/resources/static/opposition-reach.gif")
+                    .location("src/main/resources/static/opposition-reach.gif")
                     .exerciseId(uuid)
                     .build();
 
@@ -83,7 +83,7 @@ public class ExerciseApiServiceApplication {
                     .build();
 
             GifLocation location_3 = GifLocation.builder()
-                    .location("exercise-api-service/src/main/resources/static/double-leg-kicks.gif")
+                    .location("src/main/resources/static/double-leg-kicks.gif")
                     .exerciseId(uuid)
                     .build();
 
@@ -97,7 +97,7 @@ public class ExerciseApiServiceApplication {
                     .build();
 
             GifLocation location_4 = GifLocation.builder()
-                    .location("exercise-api-service/src/main/resources/static/back-support.gif")
+                    .location("src/main/resources/static/back-support.gif")
                     .exerciseId(uuid)
                     .build();
 
@@ -111,7 +111,7 @@ public class ExerciseApiServiceApplication {
                     .build();
 
             GifLocation location_5 = GifLocation.builder()
-                    .location("exercise-api-service/src/main/resources/static/t-press.gif")
+                    .location("src/main/resources/static/t-press.gif")
                     .exerciseId(uuid)
                     .build();
 
@@ -125,7 +125,7 @@ public class ExerciseApiServiceApplication {
                     .build();
 
             GifLocation location_6 = GifLocation.builder()
-                    .location("exercise-api-service/src/main/resources/static/bridge-variation.gif")
+                    .location("src/main/resources/static/bridge-variation.gif")
                     .exerciseId(uuid)
                     .build();
 
@@ -139,7 +139,7 @@ public class ExerciseApiServiceApplication {
                     .build();
 
             GifLocation location_7 = GifLocation.builder()
-                    .location("exercise-api-service/src/main/resources/static/kneeling-side-leg-twist.gif")
+                    .location("src/main/resources/static/kneeling-side-leg-twist.gif")
                     .exerciseId(uuid)
                     .build();
 
@@ -153,7 +153,7 @@ public class ExerciseApiServiceApplication {
                     .build();
 
             GifLocation location_8 = GifLocation.builder()
-                    .location("exercise-api-service/src/main/resources/static/pinwheel.gif")
+                    .location("src/main/resources/static/pinwheel.gif")
                     .exerciseId(uuid)
                     .build();
 
