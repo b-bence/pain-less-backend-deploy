@@ -51,7 +51,7 @@ public class ExerciseApiServiceApplication {
                     .name("Elbow to knee")
                     .description("Begin on all-fours with your hands under your shoulders and your knees under your sitz bones. Find a long neutral spine, wide collar bones, and a connected core. Lift your right arm forward and your left leg back. Inhale and reach your fingertips away from your toes until your spine lengthens into an arch. Exhale and deepen your stomach in towards your spine to draw your right elbow to your left knee, allowing the spine to round. Repeat for 10 reps then switch sides to do 10 reps on the opposite side.")
                     .gifUrl("image/" + uuid)
-                    .lengthInSeconds(10)
+                    .lengthInSeconds(19)
                     .build();
 
             GifLocation location_1 = GifLocation.builder()
