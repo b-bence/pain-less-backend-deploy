@@ -1,11 +1,8 @@
 package com.fitness.exerciseapiservice.controller;
 
 import com.fitness.exerciseapiservice.model.Exercise;
-import com.fitness.exerciseapiservice.model.Workout;
 import com.fitness.exerciseapiservice.repository.ExerciseRepository;
 import com.fitness.exerciseapiservice.repository.GifLocationRepository;
-import com.fitness.exerciseapiservice.repository.WorkoutRepository;
-import com.fitness.exerciseapiservice.service.ExerciseList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -32,23 +29,18 @@ public class ExerciseApiController {
     @Autowired
     private ExerciseRepository exerciseRepository;
 
-    @Autowired
-    private ExerciseList exerciseList;
 
     @Autowired
     private GifLocationRepository gifLocationRepository;
 
-    @Autowired
-    private WorkoutRepository workoutRepository;
-
     @CrossOrigin(origins = ORIGIN)
-    @GetMapping("/all")
+    @GetMapping("exercise/all")
     public List<Exercise> getAllExercises(){
         return exerciseRepository.findAll();
     }
 
     @CrossOrigin(origins = ORIGIN)
-    @GetMapping(value = "/image/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
+    @GetMapping(value = "exercise/image/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
     public ResponseEntity<Resource> returnImage(@PathVariable UUID id, HttpServletResponse response) throws IOException {
         final ByteArrayResource inputStream = new ByteArrayResource(Files.readAllBytes(Paths.get(
                 gifLocationRepository.getGifLocationByExerciseId(id).getLocation()
@@ -64,11 +56,8 @@ public class ExerciseApiController {
     public Exercise getExerciseById(@PathVariable UUID id){
         return exerciseRepository.getExerciseById(id);
     }
-    @CrossOrigin(origins = ORIGIN)
-    @GetMapping("/workout/all")
-    public List<Workout> getAllWorkouts(){
-        return workoutRepository.findAll();
-    }
+
+
 
 
 }
