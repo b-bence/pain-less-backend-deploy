@@ -1,5 +1,8 @@
 # PainLess
 
+The application is fully deployed, check the live version here:
+- https://pain-less.netlify.app/
+
 This is the backend of a web-application, which was made to give you exercise routines for strengthening and stretching your back and core, and therefore ease any pain related to these areas, and improve your posture. There are some previously generated workout routines, but you can create custom workout plans using the exercise library. 
 The project's frontend repository is available here: https://github.com/veronka21/pain-less-frontend
 
@@ -12,10 +15,9 @@ Future plans also include tracking the training history, and setting training go
 The backend part of the project uses:
 - Spring/Spring boot
 - Hibernate
-- Zuul, Eureka
 
 ## Installation and Setup Instructions
 
-1. Clone this repository: git clone https://github.com/b-bence/pain-less-backend
+1. Clone this repository: git clone https://github.com/b-bence/pain-less-backend-deploy
 2. You will also need to download the frontend repository (https://github.com/veronka21/pain-less-frontend) and follow the instructions there.
 
